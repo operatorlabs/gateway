@@ -11,8 +11,8 @@
 
 ### Installation
 
-1. `npm install -g @operatorlabs/gateway` 
-2. To launch your agent, run `agi launch` and follow the instructions.
+1. `npm install -g @operatorlabs/cli` 
+2. To launch your agent, run `agent launch` and follow the instructions.
 3. At the end of the process, you should have a docker-compose.yml file you can use to deploy. However, you may want to deploy in a quick and easy fashion rather than deal with AWS or Azure or the like. We recommend fly.io for this purpose. 
 
 ### Deployment
