@@ -1,0 +1,70 @@
+{
+  "name": "@operatorlabs/gateway",
+  "version": "0.1.62",
+  "description": "CLI tool for agents",
+  "main": "./dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "rm -rf ./dist",
+    "run": "node ./dist/index.js",
+    "prerun": "npm run build",
+    "watch": "tsc --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "tsc"
+  },
+  "bin": {
+    "agent": "dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/operatorlabs/gateway.git"
+  },
+  "author": "Operator Labs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/operatorlabs/gateway/issues"
+  },
+  "homepage": "https://github.com/xmtp/gateway#readme",
+  "devDependencies": {
+    "@types/decompress": "^4.2.7",
+    "@types/dotenv": "^8.2.0",
+    "@types/download": "^8.0.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^18.11.7",
+    "@types/react": "^18.0.24",
+    "@types/yargs": "^17.0.13",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^37.9.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "prettier": "^2.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@xmtp/xmtp-js": "11.2.1",
+    "decompress": "^4.2.1",
+    "dotenv": "^16.3.1",
+    "download": "^8.0.0",
+    "ethers": "^5.7.2",
+    "fs-extra": "^11.2.0",
+    "ink": "^3.2.0",
+    "inquirer": "^9.2.12",
+    "open": "^10.0.3",
+    "react": "^17.0.2",
+    "yargs": "^17.6.0"
+  },
+  "engines": {
+    "node": ">=16.7.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
