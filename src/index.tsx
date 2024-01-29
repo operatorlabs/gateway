@@ -478,7 +478,12 @@ yargs(hideBin(process.argv))
     'Launch your agent',
     {},
     async (argv: any) => {
-      await checkAndModifyDockerfile();
+
+      const dockerfilePath = path.join(process.cwd(), 'Dockerfile');
+      if (!fs.existsSync(dockerfilePath)) {
+        console.error('Error: Dockerfile not found in the root directory.');
+        process.exit(1);
+      }
 
       if (!fs.existsSync(path.join(process.cwd(), '.env'))) {
         console.error('Error: .env file not found in the root directory.');
@@ -648,6 +653,7 @@ yargs(hideBin(process.argv))
             ];
 
             await inquirer.prompt(flyOptions);
+
             const supervisordOptions = [
               {
                 type: 'list',
