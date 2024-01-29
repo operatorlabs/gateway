@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/operatorlabs/gateway/issues"
   },
-  "homepage": "https://github.com/xmtp/gateway#readme",
+  "homepage": "https://github.com/operatorlabs/gateway#readme",
   "devDependencies": {
     "@types/decompress": "^4.2.7",
     "@types/dotenv": "^8.2.0",
