@@ -98,18 +98,18 @@ stderr_logfile_maxbytes=0
 
 The only potential modifications you need to make are to the command and directory settings for each program. however, if you followed the Dockerfile setup from step 2, you should not have to.
 
-4. Now you can test whether it all works locally. First, make sure you have Docker installed and running on your computer. It is helpful to have Docker Hub installed and open as well so you can easily start/stop/delete images and containers. Here are the commands you should run, all from the root of your project (where your Dockerfile is located)
+4. Now you can test whether it all works locally. First, make sure you have Docker installed and running on your computer. It is helpful to have Docker Desktop installed and open as well so you can easily start/stop/delete images and containers. Here are the commands you should run, all from the root of your project (where your Dockerfile is located)
 
 ```
 # Build your Docker image, and call it test-agent-api or whatever you want
 docker build -t test-agent-api .
 
-# You can check Docker Hub and see if your image is there
+# You can check Docker Desktop and see if your image is there
 
 # Now run your image in a container locally, including the .env secrets. Instead of test-agent-api-container, you can obviously name it whatever you want.
 docker run -d --env-file .env --name test-agent-api-container test-agent-api
 
-# You can check Docker Hub and click containers, and your container name should show up as running.
+# You can check Docker Desktop and click containers, and your container name should show up as running.
 
 # Verify that your commands used to run both apps are accessible
 docker exec -it test-agent-api-container which uvicorn
