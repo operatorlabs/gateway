@@ -121,9 +121,14 @@ docker exec -it test-agent-api-container which node
 docker logs -f test-agent-api-container
 ```
 
-5. Your container is running now, and with the last docker logs command you should see a stream of logs from your container. Now you can use any XMTP client such as Converse or Coinbase Wallet and send your agent's address a message. You should see the logs update as the agent processes the message. This means you are ready to deploy.
+5. Your container is running now, and with the last docker logs command you should see a stream of logs from your container. Now you can use any XMTP client such as Converse or Coinbase Wallet and send your agent's address a message. You should see the logs update as the agent processes the message. This means you are ready to deploy. Now before you do the next step, check your `supervisord.conf` file and make sure the host is set to `localhost` instead of `0.0.0.0`:
 
-6. First go to fly.io and follow instructions to install their CLI, set up an account, etc. Once it's all set up and you can verify the CLI is working on your machine, run `fly launch` in the root of your project. It should utilize your existing Dockerfile. Even though this will create your application on Fly, it will not actually work yet.
+```
+[program:agent-api]
+command=uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+7. First go to fly.io and follow instructions to install their CLI, set up an account, etc. Once it's all set up and you can verify the CLI is working on your machine, run `fly launch` in the root of your project. It should utilize your existing Dockerfile. Even though this will create your application on Fly, it will not actually work yet.
 
 6. Fly.io has their own secrets management service, so the last thing to do before deploying is to take every secret used from your .env file and set them as Fly secrets. You can do this in Fly.io by navigating to your application you just made, and setting the secrets there. Or you can do it in the CLI like so:
 
@@ -158,3 +163,5 @@ This way, your agent will always be running and won't miss any requests from use
 It is also important that your internal_port for the http-service is set to your agent's port. As in, it should be set to whatever value is set for AGENT_PORT in your .env file.
 
 Note that you (or anyone else) will not be able to just create a POST request and try to use your agent by hitting your hosted API because we are using localhost for everything.
+
+You can now run `fly deploy` and your application will be live.
