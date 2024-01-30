@@ -125,7 +125,7 @@ docker logs -f test-agent-api-container
 
 ```
 [program:agent-api]
-command=uvicorn main:app --host 0.0.0.0 --port 8000
+command=uvicorn main:app --host localhost --port 8000
 ```
 
 7. First go to fly.io and follow instructions to install their CLI, set up an account, etc. Once it's all set up and you can verify the CLI is working on your machine, run `fly launch` in the root of your project. It should utilize your existing Dockerfile. Even though this will create your application on Fly, it will not actually work yet.
